@@ -1,11 +1,13 @@
 import './App.css'
-import Dashboard from './Components/Dashboard/Dashboard'
+import { Route,Routes } from 'react-router-dom'
+import Dashboard from './components/Dashboard'
 
 function App() {
-
   return (
     <>
-      <Dashboard/>
+      <div className="app">
+        <Dashboard/>
+      </div>
     </>
   )
 }

@@ -1,18 +1,46 @@
-.balance{
+.Nav{
+    height: 3.5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
+    padding-left: 1rem;
 }
-.stat{
+.expenseCard{
+    width: 25rem;
+    box-shadow: 1px 1px 2px black;
+}
+.outerTracker{
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
 }
-.transaction{
+.outerTracker > img{
+    width: 25%;
+}
+.expense{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+}
+.search{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.headerTransactions{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.form-control , .btn-outline-secondary, .table{
+    box-shadow: 1px 1px 2px black;
+}
+.grp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
