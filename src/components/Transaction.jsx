@@ -1,4 +1,8 @@
-export default function Transaction() {
+import { useEffect, useState } from "react";
+import axios from "axios";
+export default function Transaction({transaction,setTransaction}) {
+
+
   return (
     <div className="transactions my-5">
       <div className="search container-fluid ">
@@ -27,7 +31,10 @@ export default function Transaction() {
             name="btnradio"
             id="btnradio1"
           />
-          <label className="btn btn-outline-primary" htmlFor="btnradio1">
+          <label
+            className="btn btn-outline-primary"
+            htmlFor="btnradio1"
+          >
             All
           </label>
 
@@ -37,7 +44,10 @@ export default function Transaction() {
             name="btnradio"
             id="btnradio2"
           />
-          <label className="btn btn-outline-primary" htmlFor="btnradio2">
+          <label
+            className="btn btn-outline-primary"
+            htmlFor="btnradio2"
+          >
             Income
           </label>
 
@@ -47,7 +57,10 @@ export default function Transaction() {
             name="btnradio"
             id="btnradio3"
           />
-          <label className="btn btn-outline-primary" htmlFor="btnradio3">
+          <label
+            className="btn btn-outline-primary"
+            htmlFor="btnradio3"
+          >
             Expense
           </label>
         </div>
@@ -63,13 +76,19 @@ export default function Transaction() {
               </tr>
             </thead>
             <tbody>
-              <tr >
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              {transaction.map((ele) => {
+                if (ele !== undefined) {
+                  return (
+                    <tr key={ele._id}>
+                      <th scope="row">{ele.name}</th>
+                      <td>{ele.transactionType}</td>
+                      <td>{ele.date.slice(0, 10)}</td>
+                      <td>{ele.amount}</td>
+                      <td>{ele.tag}</td>
+                    </tr>
+                  );
+                }
+              })}
             </tbody>
           </table>
         </div>

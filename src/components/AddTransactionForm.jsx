@@ -1,6 +1,7 @@
 import { useFormik } from 'formik';
+import axios from 'axios';
 
-export default function AddTransactionIncome(){
+export default function AddTransactionIncome({setTransaction}){
 
     const validate = values => {
         const errors = {};
@@ -30,7 +31,15 @@ export default function AddTransactionIncome(){
         },
         validate,
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            // alert(JSON.stringify(values, null, 2));
+            // console.log(values)
+            values.transactionType = "income"
+            axios.post("http://localhost:3000/transactions",values).then((response)=>{
+                console.log(response.data);
+                setTransaction((prevArr)=>{
+                    return [...prevArr,response.data]
+                })
+            })
         },
       });
     return <div>
